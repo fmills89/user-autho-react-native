@@ -12,15 +12,17 @@ async function authenticate(mode, email, password) {
     returnSecureToken: true,
   });
 
-  console.log(response.data);
+  const token = response.data.idToken;
+
+  return token;
 }
 
 // by using async/await we are make sure func overrall returns promise that will
 // resolve once request is done - allowing for loading overlay
-export async function createUser(email, password) {
-  await authenticate('signup', email, password);
+export function createUser(email, password) {
+  return authenticate('signup', email, password);
 }
 
-export async function login(email, password) {
-  await authenticate('signInWithPassword', email, password);
+export function login(email, password) {
+  return authenticate('signInWithPassword', email, password);
 }

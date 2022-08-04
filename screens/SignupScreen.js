@@ -17,9 +17,10 @@ function SignupScreen() {
       const token = await createUser(email, password);
       authCtx.authenticate(token);
     } catch (error) {
+      console.log(error);
       Alert.alert('Invalid credentials.', 'Please try again!');
+      setIsAuthenticating(false);
     }
-    setIsAuthenticating(false);
   }
 
   if (isAuthenticating) {

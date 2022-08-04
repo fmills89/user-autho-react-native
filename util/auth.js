@@ -20,7 +20,7 @@ async function authenticate(mode, email, password) {
 // by using async/await we are make sure func overrall returns promise that will
 // resolve once request is done - allowing for loading overlay
 export function createUser(email, password) {
-  return authenticate('signup', email, password);
+  return authenticate('signUp', email, password);
 }
 
 export function login(email, password) {
